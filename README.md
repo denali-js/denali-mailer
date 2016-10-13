@@ -28,6 +28,27 @@ export default WelcomeMailer extends Mailer {
 And define your templates in `app/mailers/welcome/tempalte.{html,txt}`
 which get access to the data via ejs.
 
+Use in your action via `this.service('mailer')`:
+
+```js
+import ApplicationAction from './application';
+
+export default class IndexAction extends ApplicationAction {
+
+  serializer = false;
+
+  respond() {
+    let mailer = this.service('mailer');
+    let data = { email: 'hello@user.com' };
+    
+    mailer.send('welcome', data);
+    
+    return { message: 'Welcome to Denali!' };
+  }
+
+}
+```
+
 
 ## Developing
 
