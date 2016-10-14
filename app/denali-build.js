@@ -5,7 +5,8 @@ import ejs from 'ejs';
 
 class TemplateCompiler extends Filter {
   processString(contents) {
-    return `export default ${ ejs.compile(contents, {}).toString() }`;
+    let options = { client: true };
+    return `module.exports = ${ ejs.compile(contents, options).toString() }`;
   }
 }
 
