@@ -1,21 +1,32 @@
 import Funnel from 'broccoli-funnel';
-import MergeTree from 'broccoli-merge-tree';
+import MergeTrees from 'broccoli-merge-trees';
 import Filter from 'broccoli-filter';
 import ejs from 'ejs';
 
 class TemplateCompiler extends Filter {
-  extensions = [ 'txt', 'html' ];
-  targetExtension = '.js';
-
   processString(contents) {
-    return `export default ${ ejs.compile(contents).toString() }`;
+    return `export default ${ ejs.compile(contents, {}).toString() }`;
   }
 }
 
+class TextTemplateCompiler extends TemplateCompiler {
+  extensions = [ 'txt' ];
+  targetExtension = 'txt.js';
+}
+
+class HtmlTemplateCompiler extends TemplateCompiler {
+  extensions = [ 'html' ];
+  targetExtension = 'html.js';
+}
+
 export default function build(appTree) {
-  let templates = new Funnel(appTree, {
-    include: [ 'app/mailers/*/template.{html,txt}' ]
+  let textTemplates = new Funnel(appTree, {
+    include: [ 'app/mailers/*/template.txt' ]
   });
-  let compiledTemplates = new TemplateCompiler(templates);
-  return new MergeTree([ appTree, compiledTemplates ], { overwrite: true });
+  let htmlTemplates = new Funnel(appTree, {
+    include: [ 'app/mailers/*/template.html' ]
+  });
+  let compiledTextTemplates = new TextTemplateCompiler(textTemplates);
+  let compiledHtmlTemplates = new HtmlTemplateCompiler(htmlTemplates);
+  return new MergeTrees([ appTree, compiledTextTemplates, compiledHtmlTemplates ], { overwrite: true });
 }
