@@ -23,13 +23,26 @@ class HtmlTemplateCompiler extends TemplateCompiler {
 }
 
 export default class DenaliMailerBuilder extends Builder {
+  babelOptions() {
+    let options = super.babelOptions(...arguments);
+    let ignore = 'app/mailers/*/template.*.js';
+
+    if (options.ignore && Array.isArray(options.ignore)) {
+      options.ignore.push(ignore);
+    } else {
+      options.ignore = [ignore];
+    }
+
+    return options;
+  }
+
   treeForApp() {
     let projectPath = path.join(this.project.dir, 'app');
     let textTemplates = new Funnel(projectPath, {
-      include: [ 'app/mailers/*/template.txt' ]
+      include: [ 'mailers/*/template.txt' ]
     });
     let htmlTemplates = new Funnel(projectPath, {
-      include: [ 'app/mailers/*/template.html' ]
+      include: [ 'mailers/*/template.html' ]
     });
     let compiledTextTemplates = new TextTemplateCompiler(textTemplates);
     let compiledHtmlTemplates = new HtmlTemplateCompiler(htmlTemplates);
