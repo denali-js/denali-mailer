@@ -11,12 +11,12 @@ export default class Mailer {
   subject = null;
 
   html(data) {
-    let template = this.container.lookup(`mailer:${ this.name }/template.html`);
+    let template = this.container.lookup(`mailer:${ this.name }/template.html.js`);
     return template(data);
   }
 
   text(data) {
-    let template = this.container.lookup(`mailer:${ this.name }/template.txt`);
+    let template = this.container.lookup(`mailer:${ this.name }/template.txt.js`);
     return template(data);
   }
 
