@@ -1,4 +1,4 @@
-import Builder from 'denali/cli/builder';
+import { Builder } from 'denali';
 import Funnel from 'broccoli-funnel';
 import MergeTrees from 'broccoli-merge-trees';
 import Filter from 'broccoli-filter';
