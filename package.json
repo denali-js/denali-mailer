@@ -22,16 +22,18 @@
     "broccoli-filter": "^1.2.4",
     "broccoli-funnel": "^1.0.7",
     "broccoli-merge-trees": "^1.1.4",
-    "codeclimate-test-reporter": "^0.4.0",
-    "denali": "0.0.12",
+    "denali": "0.0.13",
+    "ejs": "^2.5.2",
     "lodash": "^4.16.4",
-    "nodemailer": "^2.6.4",
-    "nyc": "^8.3.2",
-    "standard-version": "^3.0.0"
+    "nodemailer": "^2.6.4"
   },
   "devDependencies": {
     "ava": "^0.16.0",
-    "babel-eslint": "^6.0.4"
+    "babel-eslint": "^6.0.4",
+    "codeclimate-test-reporter": "^0.4.0",
+    "nyc": "^8.3.2",
+    "standard-version": "^3.0.0",
+    "sinon": "^1.17.6"
   },
   "ava": {
     "plugins": [],
