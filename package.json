@@ -19,7 +19,6 @@
     "broccoli-funnel": "^1.0.7",
     "broccoli-merge-trees": "^1.1.4",
     "denali": "0.0.12",
-    "eslint-config-denali": "^1.1.0",
     "lodash": "^4.16.4",
     "nodemailer": "^2.6.4"
   },
