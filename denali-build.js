@@ -30,7 +30,11 @@ export default class DenaliMailerBuilder extends Builder {
     if (options.ignore && Array.isArray(options.ignore)) {
       options.ignore.push(ignore);
     } else {
-      options.ignore = [ignore];
+      options.ignore = [ ignore ];
+    }
+
+    if (this.environment === 'test') {
+      options.plugins.push('istanbul');
     }
 
     return options;

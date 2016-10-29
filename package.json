@@ -10,7 +10,14 @@
     "addon"
   ],
   "main": "app/addon.js",
+  "scripts": {
+    "coverage": "scripts/coverage.sh",
+    "preversion": "scripts/preversion.sh",
+    "release": "scripts/release.sh",
+    "test": "scripts/test.sh"
+  },
   "dependencies": {
+    "babel-plugin-istanbul": "^2.0.3",
     "babel-plugin-transform-async-to-generator": "^6.16.0",
     "babel-plugin-transform-class-properties": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
@@ -18,9 +25,12 @@
     "broccoli-filter": "^1.2.4",
     "broccoli-funnel": "^1.0.7",
     "broccoli-merge-trees": "^1.1.4",
+    "codeclimate-test-reporter": "^0.4.0",
     "denali": "0.0.12",
     "lodash": "^4.16.4",
-    "nodemailer": "^2.6.4"
+    "nodemailer": "^2.6.4",
+    "nyc": "^8.3.2",
+    "standard-version": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.16.0",
