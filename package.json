@@ -2,7 +2,6 @@
   "name": "denali-mailer",
   "version": "0.0.1",
   "scripts": {
-    "build": "denali build",
     "test": "denali test"
   },
   "keywords": [
@@ -12,23 +11,24 @@
   ],
   "main": "app/addon.js",
   "dependencies": {
-    "babel-plugin-transform-class-properties": "^6.8.0",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-plugin-transform-class-properties": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
-    "babel-register": "^6.8.0",
-    "bluebird": "^2.9.25",
+    "bluebird": "^3.4.6",
     "broccoli-filter": "^1.2.4",
     "broccoli-funnel": "^1.0.7",
     "broccoli-merge-trees": "^1.1.4",
-    "denali": "0.0.10",
-    "ejs": "^2.5.2",
-    "eslint": "^2.11.0",
+    "denali": "0.0.12",
     "eslint-config-denali": "^1.1.0",
     "lodash": "^4.16.4",
     "nodemailer": "^2.6.4"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
-    "eslint": "^2.9.0",
-    "must": "^0.13.1"
+    "ava": "^0.16.0",
+    "babel-eslint": "^6.0.4"
+  },
+  "ava": {
+    "plugins": [],
+    "presets": []
   }
 }
