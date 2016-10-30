@@ -1,6 +1,7 @@
 export default function drawRoutes(router) {
 
   router.get('/', 'index');
+  router.post('/send-mail', 'send-mail');
 
   /*
    * # Single routes
