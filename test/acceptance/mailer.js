@@ -16,7 +16,3 @@ test('Mailer > sends an email to the configured email transport', async (t) => {
   t.is(sentMails[0].htmlContent().trim(), '<p>Hello world!</p>');
   t.is(sentMails[0].textContent().trim(), 'Hello world!');
 });
-
-// subject: 'Hello world, my name is Dave',
-// html: '<p>My name is Dave, what is yours?</p>',
-// text: 'My name is Dave, what is yours?'
