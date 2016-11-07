@@ -6,7 +6,7 @@ export default class MailerService extends Service {
   send(name, data) {
     let MailerClass = this.container.lookup(`mailer:${ name }/mailer`) || Mailer;
     let mailer = new MailerClass(name, this.container);
-    mailer.send(data);
+    return mailer.send(data);
   }
 
 }

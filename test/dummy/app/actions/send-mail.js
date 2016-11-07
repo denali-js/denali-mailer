@@ -6,7 +6,7 @@ export default class SendMailAction extends ApplicationAction {
 
   respond(params) {
     let mailer = this.service('mailer');
-    mailer.send('hello-world', params);
+    return mailer.send('hello-world', params);
   }
 
 }
