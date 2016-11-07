@@ -33,9 +33,29 @@ export default class TestTransport {
         let messageId = (mail.message.getHeader('message-id') || '').replace(/[<>\s]/g, '');
         let bufferedMessage = Buffer.concat(chunks);
         let info = {
-          envelope: mail.data.envelope || mail.message.getEnvelope(),
           messageId,
-          message: bufferedMessage
+          envelope: mail.data.envelope || mail.message.getEnvelope(),
+          subject: bufferedMessage.toString().match(/Subject: (.+)/)[1],
+          rawMessage: bufferedMessage,
+          htmlContent() {
+            return this._extractMessagePart('text/html');
+          },
+          textContent() {
+            return this._extractMessagePart('text/plain');
+          },
+          _parseMessage() {
+            if (!this.parts) {
+              let messageString = bufferedMessage.toString();
+              let boundary = messageString.match(/boundary="(.+)"/)[1];
+              this.parts = messageString.split(`\n--${ boundary }`).slice(1);
+            }
+          },
+          _extractMessagePart(type) {
+            this._parseMessage();
+            let part = this.parts.find((p) => p.includes(`Content-Type: ${ type }`));
+            let headerSeparator = '\r\n\r\n';
+            return part ? part.split(headerSeparator).slice(1).join(headerSeparator) : null;
+          }
         };
         this.sentMails.push(info);
         callback(null, info);
