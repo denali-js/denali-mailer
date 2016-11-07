@@ -8,7 +8,7 @@ import path from 'path';
 class TemplateCompiler extends Filter {
   processString(contents) {
     let options = { client: true };
-    return `export default ${ ejs.compile(contents, options).toString() }`;
+    return `module.exports = ${ ejs.compile(contents, options).toString() }`;
   }
 }
 
