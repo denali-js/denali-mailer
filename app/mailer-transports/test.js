@@ -15,15 +15,8 @@ export default class TestTransport {
   }
 
   send(mail, callback) {
-    if (this.options.keepBcc) {
-      mail.message.keepBcc = true;
-    }
-
     let message = mail.message.createReadStream();
     let chunks = [];
-    let envelope = mail.data.envelope || mail.message.getEnvelope();
-
-    this.emit('envelope', envelope);
 
     message.on('error', (err) => {
       setImmediate(() => {
@@ -33,7 +26,6 @@ export default class TestTransport {
 
     message.on('data', (chunk) => {
       chunks.push(chunk);
-      this.emit('data', chunk);
     });
 
     message.on('end', () => {
