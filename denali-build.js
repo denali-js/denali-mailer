@@ -1,9 +1,10 @@
 import { Builder } from 'denali';
+import path from 'path';
+import fs from 'fs';
 import Funnel from 'broccoli-funnel';
 import MergeTrees from 'broccoli-merge-trees';
 import Filter from 'broccoli-filter';
 import ejs from 'ejs';
-import path from 'path';
 
 class TemplateCompiler extends Filter {
   processString(contents) {
@@ -23,34 +24,21 @@ class HtmlTemplateCompiler extends TemplateCompiler {
 }
 
 export default class DenaliMailerBuilder extends Builder {
-  babelOptions() {
-    let options = super.babelOptions(...arguments);
-    let ignore = 'app/mailers/*/template.*.js';
 
-    if (options.ignore && Array.isArray(options.ignore)) {
-      options.ignore.push(ignore);
-    } else {
-      options.ignore = [ ignore ];
+  processEach(tree, dir) {
+    if (fs.existsSync(path.join(dir, 'app', 'mailers'))) {
+      let textTemplates = new Funnel(tree, {
+        include: [ 'app/mailers/*/template.txt' ]
+      });
+      let htmlTemplates = new Funnel(tree, {
+        include: [ 'app/mailers/*/template.html' ]
+      });
+      let compiledTextTemplates = new TextTemplateCompiler(textTemplates);
+      let compiledHtmlTemplates = new HtmlTemplateCompiler(htmlTemplates);
+
+      return new MergeTrees([ tree, compiledTextTemplates, compiledHtmlTemplates ], { overwrite: true });
     }
-
-    if (this.environment === 'test') {
-      options.plugins.push('istanbul');
-    }
-
-    return options;
+    return tree;
   }
 
-  treeForApp() {
-    let projectPath = path.join(this.project.dir, 'app');
-    let textTemplates = new Funnel(projectPath, {
-      include: [ 'mailers/*/template.txt' ]
-    });
-    let htmlTemplates = new Funnel(projectPath, {
-      include: [ 'mailers/*/template.html' ]
-    });
-    let compiledTextTemplates = new TextTemplateCompiler(textTemplates);
-    let compiledHtmlTemplates = new HtmlTemplateCompiler(htmlTemplates);
-
-    return new MergeTrees([ projectPath, compiledTextTemplates, compiledHtmlTemplates ], { overwrite: true });
-  }
 }
