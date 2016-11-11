@@ -23,7 +23,7 @@
     "broccoli-funnel": "^1.0.7",
     "broccoli-merge-trees": "^1.1.4",
     "denali": "0.0.13",
-    "denali-babel": "^0.0.3",
+    "denali-babel": "^0.0.4",
     "denali-eslint": "^0.0.5",
     "ejs": "^2.5.2",
     "lodash": "^4.16.4",
