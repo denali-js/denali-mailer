@@ -4,7 +4,6 @@
   "scripts": {
     "build": "denali build",
     "coverage": "scripts/coverage.sh",
-    "prepublish": "echo \"Use 'npm run release' instead.\" && exit 1",
     "preversion": "scripts/preversion.sh",
     "release": "scripts/release.sh",
     "test": "scripts/test.sh"
