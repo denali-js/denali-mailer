@@ -2,7 +2,9 @@
   "name": "denali-mailer",
   "version": "0.0.1",
   "scripts": {
+    "build": "denali build",
     "coverage": "scripts/coverage.sh",
+    "prepublish": "echo \"Use 'npm run release' instead.\" && exit 1",
     "preversion": "scripts/preversion.sh",
     "release": "scripts/release.sh",
     "test": "scripts/test.sh"
@@ -15,22 +17,32 @@
   "main": "app/addon.js",
   "dependencies": {
     "babel-plugin-istanbul": "^2.0.3",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-syntax-trailing-function-commas": "^6.13.0",
     "babel-plugin-transform-async-to-generator": "^6.16.0",
-    "babel-plugin-transform-class-properties": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-es2015-destructuring": "^6.19.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-es2015-shorthand-properties": "^6.18.0",
+    "babel-plugin-transform-es2015-spread": "^6.8.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.8.0",
+    "babel-plugin-transform-exponentiation-operator": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.16.1",
+    "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
     "bluebird": "^3.4.6",
     "broccoli-filter": "^1.2.4",
     "broccoli-funnel": "^1.0.7",
     "broccoli-merge-trees": "^1.1.4",
-    "denali": "0.0.13",
-    "denali-babel": "^0.0.4",
-    "denali-eslint": "^0.0.5",
+    "denali": "0.0.x",
+    "denali-babel": "0.0.x",
+    "denali-eslint": "0.0.x",
     "ejs": "^2.5.2",
     "lodash": "^4.16.4",
     "nodemailer": "^2.6.4"
   },
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.17.0",
     "babel-eslint": "^6.0.4",
     "codeclimate-test-reporter": "^0.4.0",
     "nyc": "^8.3.2",
@@ -42,6 +54,8 @@
     "presets": []
   },
   "denali": {
-    "after": [ "denali-babel" ]
+    "after": [
+      "denali-babel"
+    ]
   }
 }

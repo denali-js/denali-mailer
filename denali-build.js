@@ -25,7 +25,7 @@ class HtmlTemplateCompiler extends TemplateCompiler {
 
 export default class DenaliMailerBuilder extends Builder {
 
-  processEach(tree, dir) {
+  processParent(tree, dir) {
     if (fs.existsSync(path.join(dir, 'app', 'mailers'))) {
       let textTemplates = new Funnel(tree, {
         include: [ 'app/mailers/*/template.txt' ]
