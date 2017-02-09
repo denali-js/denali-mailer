@@ -1,10 +1,10 @@
-import { Builder } from 'denali';
-import path from 'path';
-import fs from 'fs';
-import Funnel from 'broccoli-funnel';
-import MergeTrees from 'broccoli-merge-trees';
-import Filter from 'broccoli-filter';
-import ejs from 'ejs';
+const Builder = require('denali/lib/cli/builder').default;
+const path = require('path');
+const fs = require('fs');
+const Funnel = require('broccoli-funnel');
+const MergeTrees = require('broccoli-merge-trees');
+const Filter = require('broccoli-filter');
+const ejs = require('ejs');
 
 class TemplateCompiler extends Filter {
   processString(contents) {
@@ -14,16 +14,22 @@ class TemplateCompiler extends Filter {
 }
 
 class TextTemplateCompiler extends TemplateCompiler {
-  extensions = [ 'txt' ];
-  targetExtension = 'txt.js';
+  constructor() {
+    super(...arguments);
+    this.extensions = [ 'txt' ];
+    this.targetExtension = 'txt.js';
+  }
 }
 
 class HtmlTemplateCompiler extends TemplateCompiler {
-  extensions = [ 'html' ];
-  targetExtension = 'html.js';
+  constructor() {
+    super(...arguments);
+    this.extensions = [ 'html' ];
+    this.targetExtension = 'html.js';
+  }
 }
 
-export default class DenaliMailerBuilder extends Builder {
+module.exports = class DenaliMailerBuilder extends Builder {
 
   processParent(tree, dir) {
     if (fs.existsSync(path.join(dir, 'app', 'mailers'))) {
@@ -41,4 +47,4 @@ export default class DenaliMailerBuilder extends Builder {
     return tree;
   }
 
-}
+};
