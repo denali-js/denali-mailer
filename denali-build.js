@@ -1,4 +1,4 @@
-const Builder = require('denali/lib/cli/builder').default;
+const { Builder } = require('denali-cli');
 const path = require('path');
 const fs = require('fs');
 const Funnel = require('broccoli-funnel');

@@ -35,6 +35,7 @@
     "broccoli-merge-trees": "^1.1.4",
     "denali": "0.0.x",
     "denali-babel": "0.0.x",
+    "denali-cli": "^0.0.3",
     "denali-eslint": "0.0.x",
     "ejs": "^2.5.2",
     "lodash": "^4.16.4",
