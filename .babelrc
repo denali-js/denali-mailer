@@ -16,7 +16,8 @@
   ],
   "ignore": [
     "blueprints/*/files/**",
-    "test/dummy/**"
+    "test/dummy/**",
+    "denali-build.js"
   ],
   "env": {
     "test": {
