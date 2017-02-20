@@ -1,6 +1,6 @@
 {
   "name": "denali-mailer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "build": "denali build",
     "coverage": "scripts/coverage.sh",

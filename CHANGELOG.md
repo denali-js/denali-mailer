@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.3"></a>
+## [0.0.3](https://github.com/denali-js/denali-mailer/compare/v0.0.1...v0.0.3) (2017-02-20)
+
+
+### Bug Fixes
+
+* use initializer to setup transport + bugfixes ([138e372](https://github.com/denali-js/denali-mailer/commit/138e372))
+
+
+
 <a name="0.0.1"></a>
 ## 0.0.1 (2016-11-07)
 
