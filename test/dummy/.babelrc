@@ -14,13 +14,6 @@
     "transform-runtime"
   ],
   "ignore": [
-    "blueprints/*/files/**",
-    "test/dummy/**",
-    "denali-build.js"
-  ],
-  "env": {
-    "test": {
-      "plugins": [ "istanbul" ]
-    }
-  }
+    "blueprints/*/files/**"
+  ]
 }
