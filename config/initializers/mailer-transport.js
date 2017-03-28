@@ -7,7 +7,7 @@ export default {
     // and rely on nodemailer's dynamic plugin loading. The config.mailer.transport
     // is a function it will be executed and it's return value used.
     // See https://github.com/nodemailer/nodemailer#send-using-a-transport-plugin
-    let mailConfig = application.container.config.mailer;
+    let mailConfig = application.config.mailer;
     let transport = nodemailer.createTransport(result(mailConfig, 'transport'));
     application.container.register('mailer-transport:application', transport);
   }
