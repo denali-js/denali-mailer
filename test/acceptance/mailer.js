@@ -1,9 +1,11 @@
 import test from 'ava';
-import { AppAcceptanceTest } from 'denali';
+import { AppAcceptance } from 'denali';
 import { sentMailsFor } from 'denali-mailer';
 
 test('Mailer > sends an email to the configured email transport', async (t) => {
-  let app = new AppAcceptanceTest();
+  let app = new AppAcceptance();
+  await app.start();
+
   await app.post('/send-mail', {
     to: 'foo@example.com'
   });

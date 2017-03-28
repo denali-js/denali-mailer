@@ -1,6 +1,6 @@
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
-import { Blueprint } from 'denali';
+import { Blueprint } from 'denali-cli';
 
 export default class MailerBlueprint extends Blueprint {
   static blueprintName = 'mailer';
