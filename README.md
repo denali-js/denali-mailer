@@ -1,5 +1,8 @@
 # Denali Mailer
 
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+
 An awesome addon built on the Denali framework.
 
 ## Usage
@@ -63,3 +66,9 @@ export default class IndexAction extends ApplicationAction {
 ```sh
 $ denali test
 ```
+
+[npm-url]: https://npmjs.org/package/denali-mailer
+[npm-image]: https://img.shields.io/npm/v/denali-mailer.svg?style=flat-square
+
+[travis-url]: https://travis-ci.org/denali-js/denali-mailer
+[travis-image]: https://img.shields.io/travis/denali-js/denali-mailer/master.svg?style=flat-square
