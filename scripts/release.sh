@@ -1,3 +1,3 @@
 standard-version
-bin/denali publish
+denali publish
 git push
