@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.0.4"></a>
+## [0.0.4](https://github.com/acburdine/denali-mailer/compare/v0.0.3...v0.0.4) (2017-05-12)
+
+
+### Bug Fixes
+
+* **build:** fix babel config ([bc517db](https://github.com/acburdine/denali-mailer/commit/bc517db))
+* **mailer:** various code fixes ([667f848](https://github.com/acburdine/denali-mailer/commit/667f848))
+
+
+
 <a name="0.0.3"></a>
 ## [0.0.3](https://github.com/denali-js/denali-mailer/compare/v0.0.1...v0.0.3) (2017-02-20)
 
