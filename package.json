@@ -14,6 +14,7 @@
     "addon"
   ],
   "main": "app/addon.js",
+  "mainDir": "dist",
   "dependencies": {
     "bluebird": "^3.4.6",
     "broccoli-filter": "^1.2.4",
